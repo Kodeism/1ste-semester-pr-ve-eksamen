@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//opgave: 3.2.1, 3.2.2 
 namespace _1ste_semester_prøve_eksamen
 {
     public class Album
