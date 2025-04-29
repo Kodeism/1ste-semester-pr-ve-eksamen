@@ -8,10 +8,13 @@ new Album("15525-2512.235.23", "Batman", 1965, "Hergé", 500, 20),
 new Album("225-346235.234", "Joker", 2012, "Karl", 21,300),
 new Album("215-6565.2352", "Superman", 1978, "John", 5000,400)};
 
+
+
+
 //opgave 3.2.4
 static void FindAlbum(int år,string tegner, List<Album> album)
 {
-    int found = 0;
+    int found = 0; //antal af tegneserier vi har fundet i vores album som passer det givet år og tegner
     foreach (Album a in album)
     {
         if (a.Tegner == tegner && a.UdgivelsesDato < år)
@@ -21,11 +24,40 @@ static void FindAlbum(int år,string tegner, List<Album> album)
             Console.WriteLine($"Year of Release: {a.UdgivelsesDato}");
             Console.WriteLine($"Artist: {a.Tegner}");
             Console.WriteLine($"Price: {a.Pris}");
-            found++;
+            found++; //hvis tegneserien er lavt af den regtige tegner og er udgivet det regtige år så udskriver vi dens info og øger antallet af fundet serier med 1.
         }
-    };
-    if(found==0)
+    }
+    if (found == 0)//hvis antalet af fundet serier i vores album er 0 så udskriver vi 'ikke fundet'
+    {
         Console.WriteLine("***Ikke fundet***");
+    }
+}
+
+
+
+//Dette kan også skrives som:
+static void FindAlbum2(int år, string tegner, List<Album> album)
+{
+    int found = 0;//antal af tegneserier vi har fundet i vores album som passer det givet år og tegner
+    foreach (Album a in album)
+    {
+        if (a.Tegner == tegner)
+        {
+            if (a.UdgivelsesDato < år)
+            {
+                Console.WriteLine($"ISBN: {a.Isbn}");
+                Console.WriteLine($"Title: {a.Titel}");
+                Console.WriteLine($"Year of Release: {a.UdgivelsesDato}");
+                Console.WriteLine($"Artist: {a.Tegner}");
+                Console.WriteLine($"Price: {a.Pris}");
+                found++;//hvis tegneserien er lavt af den regtige tegner og er udgivet det regtige år så udskriver vi dens info og øger antallet af fundet serier med 1.
+            }
+        }
+    }
+    if (found == 0)//hvis antalet af fundet serier i vores album er 0 så udskriver vi 'ikke fundet'
+    {
+        Console.WriteLine("***Ikke fundet***");
+    }
 }
 
 FindAlbum(1990, "Hergé", album);
